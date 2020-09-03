@@ -1,0 +1,1 @@
+# Json s3 policy to refuse non-encrypted put objects

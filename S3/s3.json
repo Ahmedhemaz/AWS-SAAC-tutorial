@@ -1,0 +1,30 @@
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1599093118770",
+    "Statement": [
+        {
+            "Sid": "Stmt1599092997897",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::mfa-delete-test-2020/*",
+            "Condition": {
+                "Null": {
+                    "s3:x-amz-server-side-encryption": "true"
+                }
+            }
+        },
+         {
+            "Sid": "Stmt1599093117140",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::mfa-delete-test-2020/*",
+            "Condition": {
+                "StringNotEquals": {
+                    "s3:x-amz-server-side-encryption": "AES256"
+                }
+            }
+        }
+    ]
+}
